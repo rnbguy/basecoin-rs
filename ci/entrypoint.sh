@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+echo "$@"
+
 BASECOIN_SRC=${BASECOIN_SRC:-/src/basecoin-rs}
 BUILD_ROOT="${HOME}/build"
 BASECOIN_BUILD="${BUILD_ROOT}/basecoin-rs"
@@ -67,7 +69,7 @@ if [ ! -z "$@" ]; then
 else
   echo ""
   echo "No parameters supplied. Executing default tests from: ${TESTS_DIR}"
-  for t in "${TESTS_DIR}"/*; do
+  for t in "${TESTS_DIR}"/*.sh; do
     bash "$t"
   done
   echo ""
