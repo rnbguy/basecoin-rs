@@ -38,8 +38,9 @@ hermes --config "${HERMES_CONFIG}" \
 
 echo ""
 echo "Starting CometBFT..."
-cometbft unsafe-reset-all
-cometbft node > "${LOG_DIR}/cometbft.log" 2>&1 &
+# cometbft unsafe-reset-all
+# cometbft node > "${LOG_DIR}/cometbft.log" 2>&1 &
+cometmock "tcp://0.0.0.0:26658" ci/cometbft-config/genesis.json "tcp://0.0.0.0:26657" "${CHAIN_DATA}" > "${LOG_DIR}/cometbft.log" 2>&1 &
 
 echo "Starting basecoin-rs..."
 cd "${BASECOIN_SRC}"
