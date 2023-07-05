@@ -54,3 +54,6 @@ bytes = "1.0.1"
 lazy_static = "1.4.0"
 proptest = "*"
 rand = "*"
+
+[patch.crates-io]
+ibc-proto = { git = "https://github.com/rnbguy/ibc-proto-rs", branch = "include-proto-descriptor-set" }
